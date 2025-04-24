@@ -1,6 +1,6 @@
 [submodule "packages/nomad-FAIR"]
 	path = packages/nomad-FAIR
 	url = https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR.git
-[submodule "packages/nomad-battery-data"]
-	path = packages/nomad-battery-data
-	url = https://github.com/u-gajera/nomad-plugin-template
+[submodule "packages/Battery-Database"]
+	path = packages/Battery-Database
+	url = https://github.com/u-gajera/Battery-Database.git
