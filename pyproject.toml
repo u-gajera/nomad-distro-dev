@@ -11,7 +11,7 @@ dependencies = [
   'nomad-porous-materials; sys_platform != "win32"',
   "nomad-aitoolkit",
   "nomad-simulations>=0.3.2",
-  "pynxtools[apm,ellips,mpes,raman,stm,xps,xrd]==0.10.0",
+  "pynxtools[apm,ellips,mpes,raman,stm,xps,xrd]==0.11.1",
   "nomad-schema-plugin-run>=1.0.1",
   "nomad-normalizer-plugin-dos>=1.0",
   "nomad-normalizer-plugin-soap>=1.0",
@@ -22,6 +22,7 @@ dependencies = [
   "nomad-parser-plugins-database>=1.0",
   "nomad-external-eln-integrations",
   "nomad-battery-database",
+  "nomad-neb-workflows",
 ]
 
 [tool.uv.workspace]
@@ -34,6 +35,7 @@ perovskite-solar-cell-database = { git = "https://github.com/FAIRmat-NFDI/nomad-
 nomad-external-eln-integrations = { git = "https://github.com/FAIRmat-NFDI/nomad-external-eln-integrations", rev = "de8050effb510fc2be0974cb08d44b475791b0a5" }
 nomad-lab = { workspace = true }
 nomad-battery-database = { workspace = true }
+nomad-neb-workflows = { workspace = true }
 
 [tool.uv]
 extra-index-url = [
