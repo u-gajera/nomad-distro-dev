@@ -207,3 +207,40 @@ Result posted to NOMAD:
 - [ ] Integration tests with NOMAD API
 - [ ] Performance optimization for batch processing
 - [ ] Monitoring and logging for extraction quality
+
+## Possible Folder structure
+pipeline/
+├── __init__.py
+│
+├── config/                       # Maps to the "Settings" nodes
+│   ├── __init__.py
+│   ├── settings.py                # FIXED_SCHEMA & SCHEMA_TRANSFORM flags
+│   └── prompts.yaml               # Store your LLM prompts safely away from code
+│
+├── input_sources/                 # Maps to Subgraph IS
+│   ├── __init__.py
+│   ├── voice_to_text.py           # Subgraph VR (Audio stream -> STT -> Human Correction)
+│   ├── paper_to_text.py           # Subgraph PDF (Fetch Papers -> GROBID)
+│   ├── handwritten_to_text.py     # Subgraph HW (Image Capture -> OCR -> Human Correction)
+│   └── other_to_text.py            # Node OT (Other Text Sources)
+│
+├── processing/                    # Maps to the intermediary routing logic
+│   ├── __init__.py
+│   └── entry_identification.py    # Node EID (Splits source text -> 1..N entries)
+│
+├── schema_selection/              # Maps to Subgraph SS
+│   ├── __init__.py
+│   ├── manual_selector.py         # Node SSM (Fixed/Manual Schema ID logic)
+│   ├── llm_picker.py               # Node SSP (Schema Picker LLM Tool)
+│   └── nomad_client.py            # Node SSA (NOMAD API GET /schemas/{definition_id})
+│
+├── schema_filling/                # Maps to Subgraph SF
+│   ├── __init__.py
+│   ├── optimizer.py                # Node SFOP (Schema Optimization based on rules)
+│   ├── llm_engine.py              # Node SFOE (Outlines/Instructor Constrained Decoding)
+│   ├── unoptimizer.py             # Node IUM (Instance Un-Optimization / Mapping back)
+│   └── validator.py                # Node SFV (Schema Validation)
+│
+└── export/                         # Maps to the final output node
+    ├── __init__.py
+    └── archive_writer.py          # Node AW (Create `archive.json` combining JSON & schema_id)
