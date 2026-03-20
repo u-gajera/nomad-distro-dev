@@ -208,6 +208,7 @@ Result posted to NOMAD:
 - [ ] Performance optimization for batch processing
 - [ ] Monitoring and logging for extraction quality
 
+```text
 ## Possible Folder structure
 pipeline/
 ├── __init__.py
@@ -244,3 +245,5 @@ pipeline/
 └── export/                         # Maps to the final output node
     ├── __init__.py
     └── archive_writer.py          # Node AW (Create `archive.json` combining JSON & schema_id)
+
+```
