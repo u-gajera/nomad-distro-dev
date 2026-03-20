@@ -208,8 +208,9 @@ Result posted to NOMAD:
 - [ ] Performance optimization for batch processing
 - [ ] Monitoring and logging for extraction quality
 
-```text
+
 ## Possible Folder structure
+```text
 pipeline/
 ├── __init__.py
 │
